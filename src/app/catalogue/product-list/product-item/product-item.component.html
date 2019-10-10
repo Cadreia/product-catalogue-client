@@ -1,0 +1,36 @@
+<!--
+<a style="color: black; cursor: pointer;" class="list-group-item clearfix mb-1" *ngFor="let product of productList">
+    <div class="float-left">
+        <h5 class="list-group-item-heading">{{ product.name }}</h5>
+        <p class="list-group-item-text">Price: {{ product.price }}CFA</p>
+        <p class="list-group-item-text">Quantity: {{ product.quantity }}</p>
+
+    </div>
+</a>
+-->
+
+<table class="table table-hover" style="cursor: pointer;">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>In Stock</th>
+            <th>Category</th>
+            <th>Price (CFA)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productList; let i = index" (click)="onViewDetails(i)">
+            <td></td>
+            <td>{{ product.name }}</td>
+            <td><span class="badge">{{ product.quantity }}</span></td>
+            <td>{{ product.category.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+                <span style="color: blue" class="px-2">Edit</span>
+                <span style="color: red;" class="pr-2">Delete</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,18 @@
+.navbar {
+    background-color: rgba(20, 13, 20, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    font-size: 14px;
+}
+.navbar-brand {
+    font-weight: bold;
+    border-left: 2px solid #fbb02d; 
+    padding: 0 5px;
+}
+a {
+    color: rgba(255, 255, 255, 0.9) !important;
+    cursor: pointer;
+}
+a:hover, .active {
+    color: #fbb02d !important;
+}

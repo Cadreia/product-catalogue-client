@@ -1,0 +1,31 @@
+.content {
+    box-shadow: 0 0 10px grey;
+    border-radius: 5px;
+}
+.col-md-7 {
+    border-left: 2px solid #fbb02d;
+    letter-spacing: 0.16rem;
+    font-size: 14px;
+    line-height: 1.5rem;
+}
+.col-md-7 span {
+    font-weight: bold;
+}
+.big-text {
+    font-size: 30px;
+}
+p {
+    padding-bottom: 10px;
+}
+.btn {
+    background-color: rgb(168, 50, 121);
+    border: none;
+    color: white;
+}
+.btn:hover {
+    background-color: #7B2559;
+}
+.btn:focus, .btn:active {
+    box-shadow: none !important;
+    outline: none !important;
+}

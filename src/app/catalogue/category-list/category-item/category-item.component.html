@@ -1,0 +1,31 @@
+<div class="container px-5 py-2">
+    <h5 class="p-2">Categories</h5>
+
+    <div class="cat-card">
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-success btn-sm float-right mb-3">Add Category</button>
+            </div>
+        </div>
+        <a [routerLink]="['/products']" routerLinkActive="active">
+            <h6>All</h6>
+        </a>
+        <div class="row">
+            <div class="col-md-6 text-center" *ngFor="let category of categoryList">
+                    <a style="color: black; cursor: pointer;" class="list-group-item clearfix mb-1">
+                    <div>
+                        <span class="fa-stack fa-2x">
+                            <i class="fas fa-square fa-stack-2x"></i>
+                            <i class="fas fa-home fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <div>
+                            <h6 style="font-weight: bold;" class="list-group-item-heading">{{ category.name }}</h6>
+                            <a class="pr-2" style="color: blue">Edit</a>
+                            <a style="color: red;">Delete</a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

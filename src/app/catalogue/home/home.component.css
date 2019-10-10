@@ -1,0 +1,27 @@
+.brand {
+    font-family: 'Mansalva', cursive;
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: #d38312;
+    height: 30px;
+}
+#banner-text {
+    background-color: rgba(20, 13, 20, 1);
+}
+#banner-img {
+    background: url('/assets/images/watch.jpeg') no-repeat center;
+    background-size: cover;
+}
+.col-md-7 {
+    padding: 200px;
+}
+.btn {
+    color: white;
+    border-color: white;
+    background: transparent;
+    transition: 0.6s all;
+}
+.btn:hover {
+    background: black;
+    color: #a83279;
+}
