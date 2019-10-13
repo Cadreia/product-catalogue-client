@@ -1,13 +1,14 @@
-.cat-card {
-    border-right: 2px solid grey;
-    padding: 0 10px;
-}
-h5 {
-    background-image: linear-gradient(-120deg, #d38312, #a83279);
-    color: white;
-}
 p {
     font-size: 15px;
+}
+a {
+    border-radius: 0 !important;
+}
+a:hover {
+    border-left: 2px solid grey;
+}
+a:focus, a:active {
+    border: 2px solid grey;
 }
 .btn {
     border: none;
@@ -16,6 +17,6 @@ p {
     outline: none !important;
     box-shadow: none !important;
 }
-.list-group-item {
-    min-height: 170px;
+.product-item {
+    min-height: 100px;
 }

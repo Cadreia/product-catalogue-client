@@ -1,1 +1,15 @@
-<app-category-item [categoryList]="categories"></app-category-item>
+<div class="container px-5 py-2">
+    <h5 class="p-2">Categories</h5>
+    <div class="cat-card">
+        <div class="row">
+            <div class="col">
+                <div *ngIf="displayMessage" class="alert alert-success" role="alert">
+                    Category Added!
+                </div>
+                <button class="btn btn-success btn-sm float-right mb-3" (click)="onAddCategory()">Add Category</button>
+            </div>
+        </div>
+        <app-edit-category *ngIf="hasAddedCategory"></app-edit-category>
+        <app-category-item [categoryList]="categories"></app-category-item>
+    </div>
+</div>

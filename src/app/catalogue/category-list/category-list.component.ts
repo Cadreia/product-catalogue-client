@@ -9,11 +9,26 @@ import { Category } from './category.model';
 })
 export class CategoryListComponent implements OnInit {
   categories: Category[];
-
-  constructor(private category_service:CategoryService) { }
+  hasAddedCategory: boolean;
+  displayMessage = false;
+  onAddCategory() {
+    this.category_service.addCategory = true;
+    this.hasAddedCategory = this.category_service.addCategory;
+  }
+  constructor(private category_service:CategoryService) {
+    this.category_service.displayMessage.subscribe(response => {
+      this.displayMessage = response;
+      setTimeout(() => {
+        this.displayMessage = false;
+      }, 1500);
+    });
+   }
 
   ngOnInit() {
-    this.categories = this.category_service.categories;
+    this.category_service.getCategories().subscribe((categories: any) => {
+      this.categories = categories;
+      console.log(this.categories);
+    });
   }
 
 }

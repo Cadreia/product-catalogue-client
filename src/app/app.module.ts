@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { HeaderComponent } from './catalogue/header/header.component';
 import { PageNotFoundComponent } from './catalogue/page-not-found/page-not-found.component';
 import { ProductDetailComponent } from './catalogue/product-detail/product-detail.component';
 import { EditProductComponent } from './catalogue/edit-product/edit-product.component';
+import { EditCategoryComponent } from './catalogue/edit-category/edit-category.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,11 +29,15 @@ import { EditProductComponent } from './catalogue/edit-product/edit-product.comp
     HeaderComponent,
     PageNotFoundComponent,
     ProductDetailComponent,
-    EditProductComponent
+    EditProductComponent,
+    EditCategoryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

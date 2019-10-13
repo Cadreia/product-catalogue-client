@@ -10,7 +10,6 @@ import { Product } from '../product-list/product.model';
 })
 export class ProductDetailComponent implements OnInit {
   product: Product;
-  id: number;
 
   goBack() {
     this.product_service.viewDetails = false;
@@ -21,8 +20,9 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.id = +params['id'];
-      this.product = this.product_service.getProduct(this.id);
+      this.product_service.getProduct(+params['id']).subscribe((product: Product) => {
+        this.product = product;
+      });
     });
   }
 

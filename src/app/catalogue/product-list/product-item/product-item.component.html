@@ -23,9 +23,9 @@
     <tbody>
         <tr *ngFor="let product of productList; let i = index" (click)="onViewDetails(i)">
             <td></td>
-            <td>{{ product.name }}</td>
+            <td>{{ product.productname }}</td>
             <td><span class="badge">{{ product.quantity }}</span></td>
-            <td>{{ product.category.name }}</td>
+            <td>{{ product.category.categoryname }}</td>
             <td>{{ product.price }}</td>
             <td>
                 <span style="color: blue" class="px-2">Edit</span>
