@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from './category-list/category.service';
 
 @Component({
   selector: 'app-catalogue',
@@ -6,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./catalogue.component.css']
 })
 export class CatalogueComponent implements OnInit {
-
-  constructor() { }
+  constructor(private category_service: CategoryService) { }
 
   ngOnInit() {
   }

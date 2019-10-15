@@ -9,12 +9,8 @@ import { Category } from './category.model';
 })
 export class CategoryListComponent implements OnInit {
   categories: Category[];
-  hasAddedCategory: boolean;
   displayMessage = false;
-  onAddCategory() {
-    this.category_service.addCategory = true;
-    this.hasAddedCategory = this.category_service.addCategory;
-  }
+
   constructor(private category_service:CategoryService) {
     this.category_service.displayMessage.subscribe(response => {
       this.displayMessage = response;
@@ -27,7 +23,6 @@ export class CategoryListComponent implements OnInit {
   ngOnInit() {
     this.category_service.getCategories().subscribe((categories: any) => {
       this.categories = categories;
-      console.log(this.categories);
     });
   }
 

@@ -11,15 +11,17 @@ import { ProductService } from '../product.service';
 export class ProductItemComponent implements OnInit {
   @Input() productList: Product[];
 
-  onViewDetails(index: number) {
-    this.product_service.viewDetails = true;
-    let id = index + 1;
-    this.router.navigate([id], {relativeTo: this.route});
-  }
-
-  constructor(private router: Router, private route: ActivatedRoute, private product_service: ProductService) { }
+  onDelete(product: Product) {
+  this.product_service.deleteProduct(product.productid).subscribe(data => {
+    this.productList = this.productList.filter(p => p !== product);
+  });
+}
+  constructor(private product_service: ProductService) { }
 
   ngOnInit() {
   }
 
 }
+        
+        
+        

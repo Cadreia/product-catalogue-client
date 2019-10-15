@@ -1,17 +1,18 @@
 <div class="row">
+    <!--
     <div class="col-md-12 text-center">
         <a [routerLink]="['/products']" style="cursor: pointer;" class="list-group-item all-button mb-3">All
         </a>
     </div>
+-->
     <div class="col-md-12" *ngFor="let category of categoryList">
-        <a style="cursor: pointer;" class="list-group-item product-item mb-3 clearfix">
+        <a style="cursor: pointer;" class="list-group-item product-item mb-3 clearfix" (click)="onViewDetails(category)">
             <div class="float-left mr-3">
                 <h6 style="font-weight: bold;" class="list-group-item-heading pb-2">
                     {{ category.categoryname }}</h6>
             </div>
             <div class="float-right">
-                <button class="btn btn-info btn-sm mr-1" (click)="onEdit()">Edit</button>
-                <button class="btn btn-danger btn-sm" (click)="onDelete(category)">Delete</button>
+                <button class="btn btn-warning btn-sm" (click)="onViewDetails(category)"><i class="fas fa-hand-point-right"></i> View Details</button>
             </div>
         </a>
     </div>

@@ -9,7 +9,7 @@ import { Product } from '../product-list/product.model';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  product: Product;
+  product: any = {};
 
   goBack() {
     this.product_service.viewDetails = false;
@@ -20,8 +20,9 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.product_service.getProduct(+params['id']).subscribe((product: Product) => {
+      this.product_service.getProduct(+params['id']).subscribe((product: any) => {
         this.product = product;
+        console.log(this.product);
       });
     });
   }

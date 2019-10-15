@@ -1,18 +1,11 @@
-<div *ngIf="!product_service.viewDetails"> 
-    <div class="row">
-        <div class="col-md-4">
-            <app-category-list></app-category-list>
-        </div>
-        <div class="col-md-8 px-5 mt-3">
-            <h3 class="mb-3 mt-2 text-center">Product List</h3>
-            <div class="row">
-                    <div class="col">
-                        <button class="btn btn-success btn-sm mr-2 mb-2 float-right ml-auto">Add Product</button>
-                    </div>
-                </div>
-            <app-product-item [productList]="products"></app-product-item>
-        </div>
-
+<h5 class="p-2 mb-3">Product List</h5>
+<div class="row mb-3">
+    <div class="col">
+        <button class="btn btn-success btn-sm mr-2 mb-2 float-right ml-auto" [routerLink]="['/products', 'new']" (click)="onAdd()"><i class="fas fa-plus"></i> Add
+            Product</button>
     </div>
+</div>
+<div class="mx-3"> 
+    <app-product-item [productList]="products"></app-product-item>
 </div>
 <router-outlet></router-outlet>

@@ -6,14 +6,16 @@ import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({providedIn: 'root'})
 export class ProductService {
-    private products: Product[];
     viewDetails: boolean = false;
     
     constructor(private category_service: CategoryService, private http: HttpClient) {}
-    getProducts(): Observable<Product> {
-        return this.http.get<Product>(this.category_service.baseUrl + 'products');
+    getProducts(){
+        return this.http.get(this.category_service.baseUrl + 'products');
     }
-    getProduct(id: number): Observable<Product> {
-        return this.http.get<Product>(this.category_service.baseUrl + 'products/' + id);
+    getProduct(id: number) {
+        return this.http.get(this.category_service.baseUrl + 'products/' + id);
+    }
+    deleteProduct(id: number) {
+        return this.http.delete(this.category_service.baseUrl + 'products/' + id);
     }
 }

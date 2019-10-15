@@ -1,14 +1,3 @@
-<!--
-<a style="color: black; cursor: pointer;" class="list-group-item clearfix mb-1" *ngFor="let product of productList">
-    <div class="float-left">
-        <h5 class="list-group-item-heading">{{ product.name }}</h5>
-        <p class="list-group-item-text">Price: {{ product.price }}CFA</p>
-        <p class="list-group-item-text">Quantity: {{ product.quantity }}</p>
-
-    </div>
-</a>
--->
-
 <table class="table table-hover" style="cursor: pointer;">
     <thead>
         <tr>
@@ -21,15 +10,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of productList; let i = index" (click)="onViewDetails(i)">
+        <tr *ngFor="let product of productList" [routerLink]="[product.productid]" routerLinkActive="router-link-active" >
             <td></td>
             <td>{{ product.productname }}</td>
             <td><span class="badge">{{ product.quantity }}</span></td>
             <td>{{ product.category.categoryname }}</td>
             <td>{{ product.price }}</td>
             <td>
-                <span style="color: blue" class="px-2">Edit</span>
-                <span style="color: red;" class="pr-2">Delete</span>
+                <button class="btn btn-info btn-sm mr-1" (click)="onEdit()" [routerLink]="['/products', 'new']"><i class="fas fa-pen-alt"></i> Edit</button>
+                <button class="btn btn-danger btn-sm delete" (click)="onDelete(product)"><i class="fas fa-trash-alt"></i> Trash</button>
             </td>
         </tr>
     </tbody>

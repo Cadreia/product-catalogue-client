@@ -1,0 +1,9 @@
+<div class="clearfix">
+    <h5>Category: {{ category.categoryname }}</h5>
+    <p>Image:</p>
+    <p>Total Products: </p>
+    <div class="float-right">
+        <button class="btn btn-info btn-sm mr-1" (click)="onEdit()">Edit</button>
+        <button class="btn btn-danger btn-sm mr-1" (click)="onDelete(category)">Delete</button>
+    </div>
+</div>

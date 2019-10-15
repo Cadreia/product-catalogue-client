@@ -16,6 +16,8 @@ import { ProductDetailComponent } from './catalogue/product-detail/product-detai
 import { EditProductComponent } from './catalogue/edit-product/edit-product.component';
 import { EditCategoryComponent } from './catalogue/edit-category/edit-category.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoryDetailComponent } from './catalogue/category-detail/category-detail.component';
+import { CategoryStartupComponent } from './catalogue/category-startup/category-startup.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     PageNotFoundComponent,
     ProductDetailComponent,
     EditProductComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    CategoryDetailComponent,
+    CategoryStartupComponent
   ],
   imports: [
     BrowserModule,
