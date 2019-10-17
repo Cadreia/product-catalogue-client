@@ -18,4 +18,10 @@ export class ProductService {
     deleteProduct(id: number) {
         return this.http.delete(this.category_service.baseUrl + 'products/' + id);
     }
+    createProduct(category_id: number, product: Product) {
+        return this.http.post(this.category_service.baseUrl + 'products/category/' + category_id, product);
+    }
+    updateProduct(category_id: number, product_id: number, product: Product){
+        return this.http.put(this.category_service.baseUrl + 'products/' + product_id + '/category/' + category_id, product);
+    }
 }

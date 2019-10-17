@@ -6,10 +6,10 @@ import { Subject } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class CategoryService {
-    displayMessage = new EventEmitter<boolean>();
     baseUrl = "https://product-catalog-api-springboot.herokuapp.com/api/";
     showCategoryForm = false;
     emitCategory = new Subject<Category>();
+    displayMessage: boolean = false;
 
     getCategories(): Observable<Category[]>{
         return this.http.get<Category[]>(this.baseUrl + 'category');

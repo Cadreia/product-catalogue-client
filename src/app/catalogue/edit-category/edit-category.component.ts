@@ -1,35 +1,43 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CategoryService } from '../category-list/category.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Category } from '../category-list/category.model';
-import { JsonPipe } from '@angular/common';
-
 
 @Component({
   selector: 'app-edit-category',
   templateUrl: './edit-category.component.html',
   styleUrls: ['./edit-category.component.css']
 })
-export class EditCategoryComponent implements OnInit {
+export class EditCategoryComponent implements OnInit, OnDestroy {
   addForm: FormGroup;
   editMode: boolean;
   category: any = {};
+  uniqueMessageText: string;
 
   onSubmit() {
     if (this.editMode) {
       this.category_service.updateCategory(this.category.categoryid, this.addForm.value).subscribe((data: any) => {
-        console.log("Form id: " + this.category.categoryid);
       }, error => {
         alert(error);
+      }, () => {
+        setTimeout(() => {
+          this.category_service.displayMessage = true;
+          this.uniqueMessageText = 'Updated';
+        }, 1500);
       });
     }
     if (!this.editMode) {
       this.category_service.createNewCategory(this.addForm.value)
         .subscribe(data => {
           console.log("Form's value: " + this.addForm.value);
+        }, error => {
+
+        }, () => {
+          setTimeout(() => {
+            this.category_service.displayMessage = true;
+            this.uniqueMessageText = 'Added';
+          }, 1500);
         });
-      this.category_service.displayMessage.emit(true);
     }
   }
 
@@ -58,7 +66,11 @@ export class EditCategoryComponent implements OnInit {
         });
       }
     });
-    
+
+  }
+
+  ngOnDestroy() {
+    this.category_service.displayMessage = false;
   }
 
 }

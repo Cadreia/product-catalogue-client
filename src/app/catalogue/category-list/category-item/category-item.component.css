@@ -12,10 +12,13 @@ a:focus, a:active {
 }
 .btn {
     border: none;
+    color: white;
+    background: rgb(168, 50, 121);
 }
-.btn:focus, .btn:active {
+.btn:focus, .btn:active, .btn:hover {
     outline: none !important;
     box-shadow: none !important;
+    background: #7B2559;
 }
 .product-item {
     min-height: 100px;

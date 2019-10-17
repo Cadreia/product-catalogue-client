@@ -9,15 +9,9 @@ import { Category } from './category.model';
 })
 export class CategoryListComponent implements OnInit {
   categories: Category[];
-  displayMessage = false;
 
   constructor(private category_service:CategoryService) {
-    this.category_service.displayMessage.subscribe(response => {
-      this.displayMessage = response;
-      setTimeout(() => {
-        this.displayMessage = false;
-      }, 1500);
-    });
+
    }
 
   ngOnInit() {

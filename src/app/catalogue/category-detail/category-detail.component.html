@@ -1,9 +1,19 @@
+<div *ngIf="category_service.displayMessage" class="row mb-2">
+    <div class="col">
+        <div class="alert alert-danger" role="alert">
+            Category Deleted!
+        </div>
+    </div>
+</div>
 <div class="clearfix">
     <h5>Category: {{ category.categoryname }}</h5>
     <p>Image:</p>
     <p>Total Products: </p>
     <div class="float-right">
         <button class="btn btn-info btn-sm mr-1" (click)="onEdit()">Edit</button>
-        <button class="btn btn-danger btn-sm mr-1" (click)="onDelete(category)">Delete</button>
+        <button class="btn btn-danger btn-sm mr-1" type="button" (click)="onDelete(category)">
+            <span *ngIf="!category_service.displayMessage && isDeleting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Delete
+        </button>
     </div>
 </div>

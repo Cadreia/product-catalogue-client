@@ -11,17 +11,20 @@ import { ProductService } from '../product.service';
 export class ProductItemComponent implements OnInit {
   @Input() productList: Product[];
 
+  onEdit() {
+    console.log("To edit");
+  }
   onDelete(product: Product) {
-  this.product_service.deleteProduct(product.productid).subscribe(data => {
-    this.productList = this.productList.filter(p => p !== product);
-  });
-}
+    this.product_service.deleteProduct(product.productid).subscribe(data => {
+      this.productList = this.productList.filter(p => p !== product);
+    });
+  }
   constructor(private product_service: ProductService) { }
 
   ngOnInit() {
   }
 
 }
-        
-        
-        
+
+
+
