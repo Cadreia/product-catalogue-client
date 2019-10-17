@@ -1,6 +1,7 @@
     <h5 class="p-2 mb-3" fxFlex="value%" fxFlexAlign="center">Products in stuck</h5>
     <div class="row mb-3">
-        <div class="col">
+        <div class="col"> 
+           <p>Filter</p> <input type="text" placeholder="search" (click)="expression">
             <button class="btn btn-success btn-sm mr-2 mb-2 float-right ml-auto" [routerLink]="['/products', 'new']"><i class="fas fa-plus"></i> Add
                 Product</button>
         </div>
