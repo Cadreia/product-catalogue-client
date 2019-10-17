@@ -1,11 +1,11 @@
-<h5 class="p-2 mb-3">Product List</h5>
-<div class="row mb-3">
-    <div class="col">
-        <button class="btn btn-success btn-sm mr-2 mb-2 float-right ml-auto" [routerLink]="['/products', 'new']"><i class="fas fa-plus"></i> Add
-            Product</button>
+    <h5 class="p-2 mb-3" fxFlex="value%" fxFlexAlign="center">Products in stuck</h5>
+    <div class="row mb-3">
+        <div class="col">
+            <button class="btn btn-success btn-sm mr-2 mb-2 float-right ml-auto" [routerLink]="['/products', 'new']"><i class="fas fa-plus"></i> Add
+                Product</button>
+        </div>
     </div>
-</div>
-<div class="mx-3"> 
-    <app-product-item [productList]="products"></app-product-item>
-</div>
-<router-outlet></router-outlet>
+    <div class="mx-3"> 
+        <app-product-item [productList]="products"></app-product-item>
+    </div>
+    <router-outlet></router-outlet>
