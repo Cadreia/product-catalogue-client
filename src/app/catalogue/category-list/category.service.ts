@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class CategoryService {
-    baseUrl = "https://product-catalog-api-springboot.herokuapp.com/api/";
+    baseUrl = "http://product-catalogapi.herokuapp.com/api/";
     showCategoryForm = false;
     emitCategory = new Subject<Category>();
     displayMessage: boolean = false;
