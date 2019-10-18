@@ -1,25 +1,28 @@
-<table class="table table-hover" style="cursor: pointer;">
-    <thead>
-        <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>In Stock</th>
-            <th>Category</th>
-            <th>Price (CFA)</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product of productList" [routerLink]="[product.productid]" routerLinkActive="router-link-active" >
-            <td></td>
-            <td>{{ product.productname }}</td>
-            <td><span class="badge">{{ product.quantity }}</span></td>
-            <td>{{ product.category.categoryname }}</td>
-            <td>{{ product.price }}</td>
-            <td>
-                <button class="btn btn-info btn-sm mr-1" (click)="onEdit()" [routerLink]="['/products', product.productid, 'edit']"><i class="fas fa-pen-alt"></i> Edit</button>
-                <button class="btn btn-danger btn-sm delete" (click)="onDelete(product)"><i class="fas fa-trash-alt"></i> Trash</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+
+            <input class="form-control" type="text" placeholder="Search..." [(ngModel)]="productname" (input)="search()" >
+    
+    <table class="table table-hover" style="cursor: pointer;">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>In Stock</th>
+                <th>Category</th>
+                <th>Price (CFA)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productList" [routerLink]="[product.productid]" routerLinkActive="router-link-active" >
+                <td></td>
+                <td>{{ product.productname }}</td>
+                <td><span class="badge">{{ product.quantity }}</span></td>
+                <td>{{ product.category.categoryname }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                    <button class="btn btn-info btn-sm mr-1" (click)="onEdit()" [routerLink]="['/products', product.productid, 'edit']"><i class="fas fa-pen-alt"></i> Edit</button>
+                    <button class="btn btn-danger btn-sm delete" (click)="onDelete(product)"><i class="fas fa-trash-alt"></i> Trash</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
