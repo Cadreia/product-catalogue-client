@@ -16,3 +16,8 @@ a {
 a:hover, .active {
     color: #fbb02d !important;
 }
+img {
+    height:40px;
+    width: 90px;
+}
+

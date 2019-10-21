@@ -18,6 +18,7 @@ import { EditCategoryComponent } from './catalogue/edit-category/edit-category.c
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryDetailComponent } from './catalogue/category-detail/category-detail.component';
 import { CategoryStartupComponent } from './catalogue/category-startup/category-startup.component';
+import { FooterComponent } from './catalogue/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CategoryStartupComponent } from './catalogue/category-startup/category-
     EditProductComponent,
     EditCategoryComponent,
     CategoryDetailComponent,
-    CategoryStartupComponent
+    CategoryStartupComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
