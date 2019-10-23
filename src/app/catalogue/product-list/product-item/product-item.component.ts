@@ -10,6 +10,7 @@ import { ProductService } from '../product.service';
 })
 export class ProductItemComponent implements OnInit {
   @Input() productList: Product[];
+  productname: string;
 
   onEdit() {
     console.log("To edit");
@@ -23,8 +24,19 @@ export class ProductItemComponent implements OnInit {
 
   ngOnInit() {
   }
+  search(){
+    if(this.productname !=""){
+          this.productList = this.productList.filter(res=>{
+           return res.productname.toLocaleLowerCase().match(
+          this.productname.toLocaleLowerCase());
+    });
+    }else if(this.productname = ""){
+      this.ngOnInit()
 
 }
 
 
+  }
 
+  
+}
