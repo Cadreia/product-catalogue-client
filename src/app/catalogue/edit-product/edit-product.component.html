@@ -1,38 +1,50 @@
 <h5 *ngIf="!editMode" class="p-2">Add New Product</h5>
 <h5 *ngIf="editMode" class="p-2">Edit Product</h5>
 <div class="row pt-4">
-    <div class="col-md-5 my-auto mx-auto">
-        <form name="form" (ngSubmit)="addForm.form.valid && onSubmit(addForm)" #addForm="ngForm">
-            <div class="form-group mb-4">
-                <label for="product_name">Name</label>
-                <input type="text" name="productname" [(ngModel)]="product.productname" #productname="ngModel"
-                    placeholder="product name" class="form-control" id="product_name">
-            </div>
-            <div class="form-group mb-4">
-                <label for="quantity">Quantity</label>
-                <input type="number" min="1" value="1" name="quantity" [(ngModel)]="product.quantity"
-                    #quantity="ngModel" class="form-control" id="quantity">
-            </div>
-            <div class="form-group mb-4">
-                <label for="price">Price (CFA)</label>
-                <input type="text" name="price" [(ngModel)]="product.price" #price="ngModel" class="form-control"
-                    id="price">
-            </div>
-            <div class="form-group mb-2">
-                <label for="category">Category</label>
-                <select class="form-control" id="category" name="category" [(ngModel)]="product_category"
-                    #category="ngModel">
-                    <option disabled>Choose...</option>
-                    <option *ngFor="let category of categories" [ngValue]="category">{{ category.categoryname }}
-                    </option>
-                </select>
-            </div>
-            <div class="float-right mt-3">
-                <button type="submit" *ngIf="!editMode" class="btn btn-success btn-sm mr-2">Save</button>
-                <button type="submit" *ngIf="editMode" class="btn btn-success btn-sm mr-2">Update</button>
-                <button type="reset" class="btn btn-info btn-sm mr-2">Clear</button>
-                <button type="button" class="btn btn-outline-secondary btn-sm" [routerLink]="['/products']">Back</button>
-            </div>
-        </form>
-    </div>
+  <div class="col-md-5 my-auto mx-auto">
+    <form name="form" (ngSubmit)="addForm.form.valid && onSubmit(addForm)" #addForm="ngForm">
+      {{ addForm.value | json}}
+      <div class="form-group mb-4">
+        <label for="product_name">Name</label>
+        <input type="text" name="productname" [(ngModel)]="product.productname" #productname="ngModel"
+          class="form-control" id="product_name" />
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <img [src]="imageUrl" style="width: 200px; height: 150px;" id="image" />
+        <input class="form-control-file" #Image="ngModel" [(ngModel)]="product.image_uri" type="file" name="image"
+          accept="image/*" (change)="handleFileInput($event.target.files)" />
+      </div>
+      <div class="form-group mb-4">
+        <label for="quantity">Quantity</label>
+        <input type="number" min="1" value="1" name="quantity" [(ngModel)]="product.quantity" #quantity="ngModel"
+          class="form-control" id="quantity" />
+      </div>
+      <div class="form-group mb-4">
+        <label for="price">Price (CFA)</label>
+        <input type="text" name="price" [(ngModel)]="product.price" #price="ngModel" class="form-control" id="price" />
+      </div>
+      <div class="form-group mb-2">
+        <label for="category">Category</label>
+        <select class="form-control" id="category" name="category" [(ngModel)]="product_category" #category="ngModel">
+          <option disabled>Choose...</option>
+          <option *ngFor="let category of categories" [ngValue]="category">{{ category.categoryname }}
+          </option>
+        </select>
+      </div>
+      <div class="float-right mt-3">
+        <button type="submit" *ngIf="!editMode" class="btn btn-success btn-sm mr-2"
+          [disabled]="Image.value == '' || !addForm.valid">
+          Save
+        </button>
+        <button type="submit" *ngIf="editMode" class="btn btn-success btn-sm mr-2">
+          Update
+        </button>
+        <button type="reset" class="btn btn-info btn-sm mr-2">Clear</button>
+        <button type="button" class="btn btn-outline-secondary btn-sm" [routerLink]="['/products']">
+          Back
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

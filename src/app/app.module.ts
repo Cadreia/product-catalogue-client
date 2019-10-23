@@ -34,7 +34,7 @@ import { CategoryStartupComponent } from './catalogue/category-startup/category-
     EditProductComponent,
     EditCategoryComponent,
     CategoryDetailComponent,
-    CategoryStartupComponent
+    CategoryStartupComponent,
   ],
   imports: [
     BrowserModule,

@@ -33,14 +33,14 @@ export class CategoryDetailComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.category_service.getCategory(+params['id']).subscribe((category: any) => {
         this.category = category;
+        this.category_service.setToStorage("category", this.category);
       });
     });
   }
 
   ngOnInit() {
-    this.category_service.getCategories().subscribe(data => {
-      this.categoryList = data;
-    })
+      this.category = this.category_service.getFromStorage("category");
+      this.categoryList = this.category_service.getCategories()
   }
 
 }

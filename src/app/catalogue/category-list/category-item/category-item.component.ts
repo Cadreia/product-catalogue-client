@@ -14,7 +14,7 @@ export class CategoryItemComponent implements OnInit {
   onViewDetails(category: Category) {
     this.router.navigate(['/categories', category.categoryid]);
   }
-  
+
   constructor(private router: Router, private category_service: CategoryService) {
   }
 
