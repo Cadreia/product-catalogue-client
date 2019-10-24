@@ -2,6 +2,8 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { CategoryService } from '../category-list/category.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Category } from '../category-list/category.model';
+import { Product } from '../product-list/product.model';
+import { ProductService } from '../product-list/product.service';
 
 @Component({
   selector: 'app-category-detail',
@@ -11,6 +13,7 @@ import { Category } from '../category-list/category.model';
 export class CategoryDetailComponent implements OnInit {
   category: any = {};
   categoryList;
+  products;
   isDeleting: boolean;
   deleteMessage = false;
 
@@ -29,18 +32,26 @@ export class CategoryDetailComponent implements OnInit {
   onEdit() {
     this.router.navigate(['edit'], { relativeTo: this.route });
   }
-  constructor(private category_service: CategoryService, private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private category_service: CategoryService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private product_service: ProductService
+  ) {
     this.route.params.subscribe((params: Params) => {
       this.category_service.getCategory(+params['id']).subscribe((category: any) => {
         this.category = category;
+        console.log("Category: " + this.category);
+        console.log("Product Name: " + this.category.categoryname);
         this.category_service.setToStorage("category", this.category);
       });
     });
   }
 
   ngOnInit() {
-      this.category = this.category_service.getFromStorage("category");
-      this.categoryList = this.category_service.getCategories()
+    this.category = this.category_service.getFromStorage("category");
+    this.categoryList = this.category_service.getCategories();
+    this.products = this.product_service.getProducts();
   }
 
 }
