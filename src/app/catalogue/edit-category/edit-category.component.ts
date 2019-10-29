@@ -14,7 +14,7 @@ export class EditCategoryComponent implements OnInit, OnDestroy {
   uniqueMessageText: string;
   addForm: FormGroup;
 
-  get categoryame() {
+  get categoryname() {
     return this.addForm.get('categoryname');
   }
   onSubmit() {
