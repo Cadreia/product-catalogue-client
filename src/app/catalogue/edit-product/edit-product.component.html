@@ -3,11 +3,16 @@
 <div class="row pt-4">
   <div class="col-md-5 my-auto mx-auto">
     <form name="form" (ngSubmit)="addForm.form.valid && onSubmit(addForm)" #addForm="ngForm">
-      {{ addForm.value | json}}
       <div class="form-group mb-4">
         <label for="product_name">Name</label>
         <input type="text" name="productname" [(ngModel)]="product.productname" #productname="ngModel"
-          class="form-control" id="product_name" />
+          class="form-control" id="product_name" [ngClass]="{'is-invalid': addForm.submitted && productname.invalid}"
+          required />
+        <div *ngIf="addForm.submitted && productname.invalid" class="invalid-feedback">
+          <div *ngIf="productname.errors.required">
+            Product Name is required
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="image">Image</label>
@@ -18,11 +23,23 @@
       <div class="form-group mb-4">
         <label for="quantity">Quantity</label>
         <input type="number" min="1" value="1" name="quantity" [(ngModel)]="product.quantity" #quantity="ngModel"
-          class="form-control" id="quantity" />
+          class="form-control" id="quantity" [ngClass]="{'is-invalid': addForm.submitted && quantity.invalid}"
+          required />
+        <div *ngIf="addForm.submitted && quantity.invalid" class="invalid-feedback">
+          <div *ngIf="quantity.errors.required">
+            Quantity is required
+          </div>
+        </div>
       </div>
       <div class="form-group mb-4">
         <label for="price">Price (CFA)</label>
-        <input type="text" name="price" [(ngModel)]="product.price" #price="ngModel" class="form-control" id="price" />
+        <input type="text" name="price" [(ngModel)]="product.price" #price="ngModel" class="form-control" id="price"
+          [ngClass]="{'is-invalid': addForm.submitted && price.invalid}" required />
+        <div *ngIf="addForm.submitted && price.invalid" class="invalid-feedback">
+          <div *ngIf="price.errors.required">
+            Price is required
+          </div>
+        </div>
       </div>
       <div class="form-group mb-2">
         <label for="category">Category</label>
@@ -33,10 +50,7 @@
         </select>
       </div>
       <div class="float-right mt-3">
-        <button type="submit" *ngIf="!editMode" class="btn btn-success btn-sm mr-2"
-          [disabled]="Image.value == '' || !addForm.valid">
-          Save
-        </button>
+        <button type="submit" *ngIf="!editMode" class="btn btn-success btn-sm mr-2">Save</button>
         <button type="submit" *ngIf="editMode" class="btn btn-success btn-sm mr-2">
           Update
         </button>

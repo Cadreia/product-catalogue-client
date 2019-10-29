@@ -14,21 +14,21 @@ export class CategoryService {
   displayMessage: boolean = false;
 
   getCategories(): Category[] {
-    this.categories = this.getFromStorage(this.storageName);
+    //this.categories = this.getFromStorage(this.storageName);
     this.http
       .get(this.baseUrl + "category")
       .subscribe((categories: any) => {
         this.categories = categories;
-        this.setToStorage(this.storageName, this.categories);
+        //this.setToStorage(this.storageName, this.categories);
       });
-      return this.categories;
+    return this.categories;
   }
   setToStorage(storageName, storageList) {
     localStorage.setItem(storageName, JSON.stringify(storageList));
   }
   getFromStorage(storageName) {
     let localStorageItem = JSON.parse(localStorage.getItem(storageName));
-    return localStorageItem == null? [] : localStorageItem;
+    return localStorageItem == null ? [] : localStorageItem;
   }
   getCategory(id: number): Observable<Category> {
     return this.http.get<Category>(this.baseUrl + "category/" + id);
@@ -44,5 +44,5 @@ export class CategoryService {
     return this.http.put(this.baseUrl + "category/" + id, category);
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 }

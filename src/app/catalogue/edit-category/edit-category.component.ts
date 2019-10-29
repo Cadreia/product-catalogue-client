@@ -9,11 +9,14 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./edit-category.component.css']
 })
 export class EditCategoryComponent implements OnInit, OnDestroy {
-  addForm: FormGroup;
   editMode: boolean;
   category: any = {};
   uniqueMessageText: string;
+  addForm: FormGroup;
 
+  get categoryame() {
+    return this.addForm.get('categoryname');
+  }
   onSubmit() {
     if (this.editMode) {
       this.category_service.updateCategory(this.category.categoryid, this.addForm.value).subscribe((data: any) => {

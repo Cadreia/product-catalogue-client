@@ -15,12 +15,12 @@ export class ProductService {
     private http: HttpClient
   ) { }
   getProducts() {
-    this.products = this.category_service.getFromStorage(this.storageName);
+    //this.products = this.category_service.getFromStorage(this.storageName);
     this.http
       .get(this.category_service.baseUrl + "products")
       .subscribe((products: any) => {
         this.products = products;
-        this.category_service.setToStorage(this.storageName, this.products);
+        //this.category_service.setToStorage(this.storageName, this.products);
       });
     return this.products;
   }

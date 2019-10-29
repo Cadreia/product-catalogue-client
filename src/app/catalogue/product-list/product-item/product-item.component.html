@@ -1,27 +1,37 @@
 <table class="table table-hover" style="cursor: pointer;">
-    <thead>
-        <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>In Stock</th>
-            <th>Category</th>
-            <th>Price (CFA)</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product of productList">
-            <td><img [src]="product.image_uri" class="img-thumbnail" style="height: 70px; width: 100px;"></td>
-            <td [routerLink]="[product.productid]" routerLinkActive="router-link-active">{{ product.productname }}</td>
-            <td><span class="badge">{{ product.quantity }}</span></td>
-            <td>{{ product.category.categoryname }}</td>
-            <td>{{ product.price }}</td>
-            <td>
-                <button class="btn btn-info btn-sm mr-1" (click)="onEdit()"
-                    [routerLink]="['/products', product.productid, 'edit']"><i class="fas fa-pen-alt"></i> Edit</button>
-                <button class="btn btn-danger btn-sm delete" (click)="onDelete(product)"><i
-                        class="fas fa-trash-alt"></i> Trash</button>
-            </td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>In Stock</th>
+      <th>Category</th>
+      <th>Price (CFA)</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of productList">
+      <td><img [src]="product.image_uri" class="img-thumbnail" style="height: 70px; width: 100px;"></td>
+      <td>{{ product.productname }}</td>
+      <td><span class="badge">{{ product.quantity }}</span></td>
+      <td>{{ product.category.categoryname }}</td>
+      <td>{{ product.price }}</td>
+      <td>
+        <div class="row">
+          <div class="col-12">
+            <button class="btn btn-info btn-sm mr-1" (click)="onEdit()"
+              [routerLink]="['/products', product.productid, 'edit']"><i class="fas fa-pen-alt"></i></button>
+            <button class="btn btn-danger btn-sm delete" (click)="onDelete(product)"><i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+          <div class="col-12 mx-auto">
+            <button [routerLink]="[product.productid]" class="btn btn-warning btn-sm mt-2" (click)="onDelete(product)"
+              style="color: white;">View Details
+              <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+      </td>
+    </tr>
+  </tbody>
 </table>

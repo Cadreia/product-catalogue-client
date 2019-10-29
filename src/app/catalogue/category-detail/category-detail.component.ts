@@ -43,13 +43,13 @@ export class CategoryDetailComponent implements OnInit {
         this.category = category;
         console.log("Category: " + this.category);
         console.log("Product Name: " + this.category.categoryname);
-        this.category_service.setToStorage("category", this.category);
+        //this.category_service.setToStorage("category", this.category);
       });
     });
   }
 
   ngOnInit() {
-    this.category = this.category_service.getFromStorage("category");
+    //this.category = this.category_service.getFromStorage("category");
     this.categoryList = this.category_service.getCategories();
     this.products = this.product_service.getProducts();
   }

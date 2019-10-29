@@ -9,29 +9,28 @@
 -->
 
 <div class="clearfix">
-    <h5>Category: {{ category.categoryname }}</h5>
-    <p>Total Products: {{products.length}}</p>
-    <div class="float-right">
-        <button class="btn btn-info btn-sm mr-1" (click)="onEdit()">Edit</button>
-        <button class="btn btn-danger btn-sm mr-1" type="button" (click)="onDelete(category)">
-            <!-- <span *ngIf="!category_service.displayMessage && isDeleting" class="spinner-border spinner-border-sm"
+  <h5>Category: {{ category.categoryname }}</h5>
+  <div class="float-right">
+    <button class="btn btn-info btn-sm mr-1" (click)="onEdit()">Edit</button>
+    <button class="btn btn-danger btn-sm mr-1" type="button" (click)="onDelete(category)">
+      <!-- <span *ngIf="!category_service.displayMessage && isDeleting" class="spinner-border spinner-border-sm"
                 role="status" aria-hidden="true"></span> -->
-            Delete
-        </button>
-    </div>
+      Delete
+    </button>
+  </div>
 
-    <h5>Available Products</h5>
-    <div class="row" *ngFor="let product of products">
-        <div class="col-sm-6" *ngIf="product.category.categoryname == category.categoryname">
-            <div class="card" style="width: 18rem;">
-                <img [src]="product.image_uri" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.productname }}</h5>
-                    <p class="card-text">Price: {{ product.price }}CFA</p>
-                    <p class="card-text">Quantity: {{ product.quantity }}</p>
-                    <a href="#" class="btn btn-info btn-sm">View Details</a>
-                </div>
-            </div>
+  <h5 class="mt-5 mb-3 text-center">Available Products</h5>
+  <div class="row" *ngFor="let product of products">
+    <div class="col-sm-6" *ngIf="product.category.categoryname == category.categoryname">
+      <div class="card" style="width: 18rem;">
+        <img [src]="product.image_uri" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title mb-1">{{ product.productname }}</h5>
+          <p class="card-text mb-1">Price: {{ product.price }}CFA</p>
+          <p class="card-text mb-1">Quantity: {{ product.quantity }}</p>
+          <a href="#" class="btn btn-info btn-sm" [routerLink]="['/products', product.productid]">View Details</a>
         </div>
+      </div>
     </div>
+  </div>
 </div>
